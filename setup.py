@@ -34,7 +34,7 @@ setup(
         'dr_django_tools',
         'dr_django_tools.shared',
         'dr_django_tools.shared.commondata',
-        'dr_django_tools.django',
+        'dr_django_tools.shared.django',
     ],
     package_dir={'dr-django-tools':
                  'dr_django_tools'},
