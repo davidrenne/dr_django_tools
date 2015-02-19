@@ -18,7 +18,7 @@ requirements = [
     'wheel==0.23.0',
     'lazy==1.2',
     'pycountry==1.3',
-    'git+https://github.com/coderholic/django-cities.git',
+    'django-cities',
     'cookiecutter',
     'django-vanilla-views',
     'model_mommy',
