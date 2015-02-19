@@ -1,0 +1,19 @@
+# What project would be without django
+django
+
+# Needed for this package
+wheel==0.23.0
+
+# Needed for DR model classes
+lazy==1.2
+pycountry==1.3
+git+https://github.com/coderholic/django-cities.git@c26c98a9bc297ba2190e2d76b4c7945a5597d84a#egg=django_cities
+
+# Cookie cutter is a nice templating engine to get a project started
+cookiecutter
+
+# For use with a nice scaffold cookiecutter https://github.com/wildfish/cookiecutter-django-crud
+django-vanilla-views
+model_mommy
+django_webtest
+django-bootstrap3
