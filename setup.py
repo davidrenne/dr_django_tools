@@ -15,8 +15,17 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read().replace('.. :changelog:', '')
 
 requirements = [
-    # TODO: put package requirements here
+    'wheel==0.23.0',
+    'lazy==1.2',
+    'pycountry==1.3',
+    'git+https://github.com/coderholic/django-cities.git',
+    'cookiecutter',
+    'django-vanilla-views',
+    'model_mommy',
+    'django_webtest',
+    'django-bootstrap3',
 ]
+
 
 test_requirements = [
     # TODO: put package test requirements here
