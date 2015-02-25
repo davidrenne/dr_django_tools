@@ -24,7 +24,7 @@ requirements = [
     'model_mommy',
     'django_webtest',
     'django-bootstrap3',
-    'gunicorn',
+    'gunicorn==18.0',
 ]
 
 

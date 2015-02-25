@@ -5,6 +5,7 @@ import fnmatch
 import os
 import importlib
 import time
+import datetime
 from HTMLParser import HTMLParser
 
 import requests
@@ -25,6 +26,23 @@ IMAGE_TYPE_VENDOR_THUMB = 1
 IMAGE_TYPE_PHOTO_THUMB = 2
 IMAGE_TYPE_SELECTED_THUMB = 3
 IMAGE_TYPE_EXTENDED = 4
+
+def td2HHMMSSstr(td):
+    '''Convert timedelta objects to a HH:MM:SS string with (+/-) sign'''
+    if td < datetime.timedelta(seconds=0):
+        sign='-'
+        td = -td
+    else:
+        sign = ''
+    tdhours, rem = divmod(td.total_seconds(), 3600)
+    tdminutes, tdseconds = divmod(rem, 60)
+    if int(tdhours) > 0:
+        tdstr = '{}{:}:'.format(sign, int(tdhours))
+    else:
+        tdstr = '{}'.format(sign)
+    tdstr = tdstr + '{:02d}:{:02d}'.format(int(tdminutes), int(tdseconds))
+    return tdstr
+
 
 def fetchfile(source):
     '''Return an open file object.  If the source contains a url then the
