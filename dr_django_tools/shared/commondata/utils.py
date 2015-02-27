@@ -562,6 +562,8 @@ def unique_resource_slug(resource_class, s):
 
 
 def unique_slugify(obj, value, slug_field_name='slug', times_to_try=1000):
+    if not value:
+        return False
     slug_field = obj._meta.get_field(slug_field_name)
     slug_len = slug_field.max_length
 
