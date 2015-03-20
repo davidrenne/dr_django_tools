@@ -27,7 +27,7 @@ def is_mobile_and_ie(request):
         is_mobile  = True
     if reg_iphone.search(user_agent):
         iphone  = True
-    return is_mobile, is_ie, ie_version, user_agent
+    return is_mobile, is_ie, ie_version, user_agent, iphone
 
 
 #combines multiple dictionary args for common things templates might need
@@ -35,11 +35,12 @@ def template_response(*args):
     response = {}
     for count, dictionary in enumerate(args):
         if 'request' in dictionary.keys():
-            is_mobile, is_ie, ie_version, user_agent = is_mobile_and_ie(dictionary['request'])
+            is_mobile, is_ie, ie_version, user_agent, iphone = is_mobile_and_ie(dictionary['request'])
 
             response = dict(response.items() + {
                                                 'user_agent' : user_agent,
                                                 'is_ie' : is_ie,
+                                                'is_iphone' : iphone,
                                                 'ie_version' : ie_version,
                                                 'is_mobile' : is_mobile,
                                                 }.items())
