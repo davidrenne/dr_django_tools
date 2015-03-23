@@ -35,9 +35,16 @@ def template_response(*args):
     response = {}
     for count, dictionary in enumerate(args):
         if 'request' in dictionary.keys():
+
+            from urlparse import urlparse
+            o = urlparse(dictionary['request'].build_absolute_uri())
+            url = 'http://' + o.hostname
+            if o.port:
+                url += ':' + str(o.port)
             is_mobile, is_ie, ie_version, user_agent, iphone = is_mobile_and_ie(dictionary['request'])
 
             response = dict(response.items() + {
+                                                'full_uri' : url,
                                                 'user_agent' : user_agent,
                                                 'is_ie' : is_ie,
                                                 'is_iphone' : iphone,
