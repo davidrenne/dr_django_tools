@@ -27,6 +27,7 @@ requirements = [
     'gunicorn==18.0',
     'fuzzywuzzy==0.2',
     'ftputil==3.0',
+    'Unidecode==0.04.16',
 ]
 
 

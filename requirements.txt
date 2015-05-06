@@ -5,6 +5,7 @@ django
 wheel==0.23.0
 fuzzywuzzy==0.2
 ftputil==3.0
+Unidecode==0.04.16
 
 # Needed for DR model classes
 lazy==1.2
