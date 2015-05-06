@@ -160,7 +160,7 @@ class Slug(models.Model):
 
     def save(self):
         save_resource(self)
-        super(Resource, self).save()
+        super(Slug, self).save()
 
 IMAGE_TYPES = [
     # standard photo provided by vendor
