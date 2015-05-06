@@ -153,7 +153,7 @@ class Resource(MetaAware, SelectedPhotoAware):
         save_resource(self)
         super(Resource, self).save()
 
-class Slug():
+class Slug(models.Model):
     class Meta:
         abstract = True
     slug = models.CharField(max_length=200, null=True, blank=True)
