@@ -26,6 +26,7 @@ requirements = [
     'django-bootstrap3',
     'gunicorn==18.0',
     'fuzzywuzzy==0.2',
+    'ftputil==3.0',
 ]
 
 
