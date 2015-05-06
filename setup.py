@@ -25,6 +25,7 @@ requirements = [
     'django_webtest',
     'django-bootstrap3',
     'gunicorn==18.0',
+    'fuzzywuzzy==0.2',
 ]
 
 
