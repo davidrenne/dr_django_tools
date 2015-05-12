@@ -16,7 +16,6 @@ from unidecode import unidecode
 from PIL import Image
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from cities.models import Country, Region, City
 
 
 THUMBNAIL_DIMS = (120, 70)  # preferred width/height of thumbnails
@@ -237,6 +236,8 @@ def first(query):
 
 
 def lookup_location(country_s, region_s=None, city_s=None):
+
+    from cities.models import Country, Region, City
     country = None
     country_opts = [country_s]
     if '/' in country_s:
@@ -319,6 +320,7 @@ def lookup_location(country_s, region_s=None, city_s=None):
 
 
 def lookup_city(country_s, region_s, city_s):
+    from cities.models import Country, Region, City
     country = None
     if country_s == 'USA':
         country_s = 'US'
@@ -401,6 +403,7 @@ def shorten(text, width, **kwargs):
 
 
 def get_location(country_slug, region_slug, city_slug):
+    from cities.models import Country, Region, City
     location = None
     if region_slug == '-':
         location = Country.objects.get(slug=country_slug)
@@ -419,6 +422,7 @@ def get_location(country_slug, region_slug, city_slug):
 
 
 class Location(object):
+    from cities.models import Country, Region, City
     def __init__(self, id_or_object, type_=None):
         if isinstance(id_or_object, int):
             self.id = id_or_object
