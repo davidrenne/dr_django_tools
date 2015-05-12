@@ -10,7 +10,11 @@ from lazy import lazy
 from PIL import Image
 from django.conf import settings
 
-from django.contrib.gis.db import models as gis_models
+try:
+    from django.contrib.gis.db import models as gis_models
+except ImportError:
+    pass
+
 from dr_django_tools.shared.commondata.utils import (image_path,
                                              unique_slugify,
                                              update_image,
@@ -130,13 +134,16 @@ class MetaAware(models.Model):
     meta_description = models.TextField(blank=True, null=True)
 
 
-class GISMetaAware(gis_models.Model):
-    class Meta:
-        abstract = True
+try:
+    class GISMetaAware(gis_models.Model):
+        class Meta:
+            abstract = True
 
-    meta_title = models.CharField(max_length=100, blank=True, null=True)
-    meta_keywords = models.CharField(max_length=200, blank=True, null=True)
-    meta_description = models.TextField(blank=True, null=True)
+        meta_title = models.CharField(max_length=100, blank=True, null=True)
+        meta_keywords = models.CharField(max_length=200, blank=True, null=True)
+        meta_description = models.TextField(blank=True, null=True)
+except ImportError:
+    pass
 
 def save_resource(obj):
     if not obj.slug:
