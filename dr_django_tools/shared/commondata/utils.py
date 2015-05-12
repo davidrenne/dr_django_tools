@@ -422,7 +422,6 @@ def get_location(country_slug, region_slug, city_slug):
 
 
 class Location(object):
-    from cities.models import Country, Region, City
     def __init__(self, id_or_object, type_=None):
         if isinstance(id_or_object, int):
             self.id = id_or_object
@@ -433,6 +432,7 @@ class Location(object):
 
     @property
     def item(self):
+        from cities.models import Country, Region, City
         if self.type_ == 'city':
             city = City.objects.get(id=self.id)
             return city
@@ -445,6 +445,7 @@ class Location(object):
 
     @property
     def slug(self):
+        from cities.models import Country, Region, City
         if self.type_ == 'city':
             city = City.objects.get(id=self.id)
             return [str(city.country.slug), str(city.region.slug), str(city.slug)]
