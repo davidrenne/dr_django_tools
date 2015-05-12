@@ -142,7 +142,7 @@ try:
         meta_title = models.CharField(max_length=100, blank=True, null=True)
         meta_keywords = models.CharField(max_length=200, blank=True, null=True)
         meta_description = models.TextField(blank=True, null=True)
-except ImportError:
+except NameError:
     pass
 
 def save_resource(obj):
