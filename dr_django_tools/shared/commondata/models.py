@@ -15,7 +15,7 @@ try:
 except ImportError:
     pass
 
-from dr_django_tools.shared.commondata.utils import (image_path,
+from .utils import (image_path,
                                              unique_slugify,
                                              update_image,
                                              THUMBNAIL_DIMS,
@@ -24,7 +24,7 @@ from dr_django_tools.shared.commondata.utils import (image_path,
                                              IMAGE_TYPE_PHOTO_THUMB,
                                              IMAGE_TYPE_EXTENDED,
                                              IMAGE_TYPE_SELECTED_THUMB)
-from dr_django_tools.shared.commondata.image_utils import resize_and_crop
+from .image_utils import resize_and_crop
 
 LOCATION_TYPES = (
     ('city', 'City'),
