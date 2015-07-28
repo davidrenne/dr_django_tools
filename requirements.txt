@@ -11,6 +11,5 @@ git+https://github.com/coderholic/django-cities.git@c26c98a9bc297ba2190e2d76b4c7
 
 # For use with a nice scaffold cookiecutter https://github.com/wildfish/cookiecutter-django-crud
 django-vanilla-views
-model_mommy
 django_webtest
 django-bootstrap3
