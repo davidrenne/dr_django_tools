@@ -20,7 +20,6 @@ requirements = [
     'pycountry==1.3',
     'django-cities', 
     'django-vanilla-views',
-    'model_mommy',
     'django_webtest',
     'django-bootstrap3', 
     'fuzzywuzzy==0.2',
