@@ -1,6 +1,3 @@
-# What project would be without django
-django
-
 # Needed for this package
 wheel==0.23.0
 fuzzywuzzy==0.2
