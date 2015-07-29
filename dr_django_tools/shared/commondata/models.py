@@ -355,10 +355,7 @@ def setup_image_dims(image):
 
 
 def setup_image_slug(image):
-    if not image.slug:
-        rname = image.__class__.__name__
-        rname = rname[:-5]
-        templ = image_slug_templates[rname]
+    if not image.slug: 
         slugbase = resource_slugbase(obj=image, additional_context={
             'resource_name': getattr(image.resource, 'name', ''),
             'image_description': getattr(image, 'description', '') or '',
