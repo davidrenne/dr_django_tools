@@ -359,7 +359,8 @@ def setup_image_slug(image):
         rname = image.__class__.__name__
         rname = rname[:-5]
         templ = image_slug_templates[rname]
-        unique_slugify(image, templ % {
+        slugbase = resource_slugbase(obj=image, additional_context={
             'resource_name': getattr(image.resource, 'name', ''),
             'image_description': getattr(image, 'description', '') or '',
         })
+        unique_slugify(image, slugbase)
