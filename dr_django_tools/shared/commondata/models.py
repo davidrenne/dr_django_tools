@@ -26,7 +26,8 @@ from .utils import (image_path,
                                              IMAGE_TYPE_SELECTED_THUMB,
                                              IMAGE_TYPE_SPECIALS,
                                              IMAGE_TYPE_FEATURES,
-                                             IMAGE_TYPE_DINING
+                                             IMAGE_TYPE_DINING,
+                                             IMAGE_TYPE_ACTIVITIES
                     )
 from .image_utils import resize_and_crop
 
@@ -197,6 +198,9 @@ IMAGE_TYPES = [
 
     # Dining
     (IMAGE_TYPE_DINING, 'dining'),
+
+    # Activities
+    (IMAGE_TYPE_ACTIVITIES, 'activities'),
 ]
 
 

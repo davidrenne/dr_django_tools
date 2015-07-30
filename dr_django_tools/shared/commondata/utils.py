@@ -28,6 +28,7 @@ IMAGE_TYPE_EXTENDED = 4
 IMAGE_TYPE_SPECIALS = 5
 IMAGE_TYPE_FEATURES = 6
 IMAGE_TYPE_DINING = 7
+IMAGE_TYPE_ACTIVITIES = 8
 
 def td2HHMMSSstr(td):
     '''Convert timedelta objects to a HH:MM:SS string with (+/-) sign'''
