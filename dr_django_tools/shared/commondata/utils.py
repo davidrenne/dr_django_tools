@@ -613,7 +613,7 @@ def unique_slugify(obj, value, slug_field_name='slug', times_to_try=1000):
 
 def _ensure_slug_len(slug, slug_len):
     if len(slug) > slug_len:
-        slug = slug[:slug_len-(len(str(x) + 1))]
+        slug = slug[:slug_len-(len(str(x)) + 1)]
         slug = _slug_strip(slug, '-')
 
     return slug
