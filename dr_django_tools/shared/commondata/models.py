@@ -162,18 +162,18 @@ class Resource(MetaAware, SelectedPhotoAware):
         abstract = True
     slug = models.CharField(max_length=200, null=True, blank=True)
 
-    def save(self):
+    def save(self, *args, **kwargs):
         save_resource(self)
-        super(Resource, self).save()
+        super(Resource, self).save(*args, **kwargs)
 
 class Slug(models.Model):
     class Meta:
         abstract = True
     slug = models.CharField(max_length=200, null=True, blank=True)
 
-    def save(self):
+    def save(self, *args, **kwargs):
         save_resource(self)
-        super(Slug, self).save()
+        super(Slug, self).save(*args, **kwargs)
 
 IMAGE_TYPES = [
     # standard photo provided by vendor
