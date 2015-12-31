@@ -12,7 +12,7 @@ Dave and Rocky's Django Tools
         :target: https://pypi.python.org/pypi/dr-django-tools
 
 
-David Renne and Rocky Burt's Collaboration of scripts and tools used to build nice web apps
+David Renne and Rocky Burt's scripts and helpers
 
 * Free software: BSD license
 * Documentation: https://dr-django-tools.readthedocs.org.
