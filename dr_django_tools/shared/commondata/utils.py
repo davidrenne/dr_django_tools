@@ -166,14 +166,14 @@ class XMLNodeHelper(object):
         return self.node.xpath(xp)
 
 
-def grab_to_temp(url):
+def grab_to_temp(url, verify=True):
     handle, filename = tempfile.mkstemp()
     os.close(handle)
-    grab(url, filename)
+    grab(url, filename, verify)
     return filename
 
 
-def grab(url, target):
+def grab(url, target, verify=True):
     if url.startswith('ftp://'):
         # handle ftp download
         o = urlparse(url)
@@ -201,7 +201,7 @@ def grab(url, target):
             '%a, %d %b %Y %H:%M:%S +0000', time.strptime(updated))
 
     if url.startswith('http'):
-        res = requests.get(url, headers=headers, stream=True)
+        res = requests.get(url, headers=headers, stream=True, verify=verify)
         if res.status_code == 200:
             with open(target, 'wb') as f:
                 for chunk in res.iter_content(2048):
