@@ -34,7 +34,7 @@ test_requirements = [
 
 setup(
     name='dr-django-tools',
-    version='0.1.0',
+    version='0.1.1',
     description="David Renne and Rocky Burt's Collaboration of scripts and tools used to build nice web apps",
     long_description=readme + '\n\n' + history,
     author="David Renne",
