@@ -541,7 +541,7 @@ def slugify(s):
     elif not isinstance(part1, unicode):
         part1 = unicode(part1)
 
-    part1 = unidecode(part1)
+    part1 = unidecode(part1).strip()
     # part1 is now a competely safe ascii string
 
     part2 = ''
@@ -557,8 +557,13 @@ def slugify(s):
     for word in part2.split('-'):
         if word not in ignore_slug_words:
             words.append(word)
-
-    return '-'.join(words)
+    new_slug = '-'.join(words)
+    if new_slug.startswith('-'):
+        new_slug = new_slug[1:]
+    if new_slug.endswith('-'):
+        new_slug = new_slug[:-1]
+    new_slug = new_slug.replace('-------', '-').replace('------', '-').replace('-----', '-').replace('----', '-').replace('---', '-').replace('--', '-')
+    return new_slug
 
 
 _range = range(1000)
@@ -581,8 +586,10 @@ def unique_slugify(obj, value, slug_field_name='slug', times_to_try=1000):
     if orig_slug.startswith('-'):
         orig_slug = orig_slug[1:]
     slug = orig_slug
-    if getattr(obj, slug_field_name) == slug:
-        return False
+
+    # This line is not needed in cases where developer calls unique slugify again and needs to resolve conflicts
+    # if getattr(obj, slug_field_name) == slug:
+    #     return False
 
     base_q = obj.__class__.objects.only('id', 'slug').exclude(id=obj.id)
 
